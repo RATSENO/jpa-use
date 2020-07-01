@@ -24,11 +24,11 @@ public class ItemService {
     //준영속성 엔티티
     //변경 감지를 이용한 수정
     @Transactional
-    public Item updateItem(Long itemId, Book param){
+    public Item updateItem(Long itemId,String name,int price, int stockQuantity){
         Item findItem = itemRepository.findOne(itemId);
-        findItem.setPrice(param.getPrice());
-        findItem.setName(param.getName());
-        findItem.setStockQuantity(param.getStockQuantity());
+        findItem.setPrice(price);
+        findItem.setName(name);
+        findItem.setStockQuantity(stockQuantity);
         return findItem;
     }
 
